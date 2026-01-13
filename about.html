@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | studioMaker - Professional Web Design Team</title>
+    <meta name="description" content="Learn about studioMaker's mission to help local businesses succeed online with professional, affordable web design.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <style>
+        /* About Page Specific Styles */
+        .page-hero {
+            padding: 8rem 0 4rem;
+            background: linear-gradient(135deg, var(--color-background), var(--color-surface));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 300px;
+            background: radial-gradient(circle at 50% 0%, rgba(0, 212, 255, 0.1), transparent);
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .page-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.125rem;
+            color: var(--color-text-light);
+        }
+
+        .story-section {
+            padding: 6rem 0;
+        }
+
+        .story-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            color: var(--color-text-light);
+        }
+
+        .story-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .values-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background-color: var(--color-surface);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        .value-icon {
+            width: 4rem;
+            height: 4rem;
+            background-color: rgba(0, 212, 255, 0.1);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--color-primary);
+        }
+
+        .value-icon svg {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .value-card p {
+            color: var(--color-text-light);
+        }
+
+        .team-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            background-color: var(--color-surface);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        .team-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-background);
+        }
+
+        .team-member h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-role {
+            color: var(--color-primary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .team-member p {
+            color: var(--color-text-light);
+            line-height: 1.7;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--color-primary), var(--color-accent));
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            background-color: var(--color-primary);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--color-background);
+        }
+
+        .timeline-year {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            color: var(--color-text-light);
+            line-height: 1.7;
+        }
+
+        @media (min-width: 768px) {
+            .page-hero h1 {
+                font-size: 3rem;
+            }
+            .values-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .team-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .timeline::before {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .timeline-item {
+                width: 50%;
+                padding-left: 0;
+                padding-right: 3rem;
+                text-align: right;
+            }
+            .timeline-item:nth-child(even) {
+                margin-left: 50%;
+                padding-right: 0;
+                padding-left: 3rem;
+                text-align: left;
+            }
+            .timeline-dot {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content fade-in-up">
+                    <h1>About <span class="gradient-text">studioMaker</span></h1>
+                    <p>We're on a mission to help local businesses thrive online with professional, affordable websites that actually work.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section class="story-section">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <h2 class="gradient-text">Our Story</h2>
+                </div>
+
+                <div class="story-content fade-in-up stagger-1">
+                    <p>studioMaker was born from a simple observation: too many great local businesses were losing customers because of outdated, slow, or non-existent websites. We saw talented contractors, passionate restaurant owners, and skilled service providers struggling to compete online, not because they lacked quality, but because they lacked a quality web presence.</p>
+
+                    <p>We started studioMaker to change that. Our founder, a web developer with over a decade of experience building everything from enterprise platforms to simple landing pages, realized that local businesses needed a different approach than what traditional agencies were offering. They needed fast turnarounds, transparent pricing, and websites that actually converted visitors into customers.</p>
+
+                    <p>Today, we've helped over 750 local businesses establish a strong online presence. Every site we build is designed with one goal in mind: to grow your business. We combine modern design, lightning-fast performance, and conversion-focused layouts to create websites that don't just look good—they work.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="services">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <h2 class="gradient-text">Our Values</h2>
+                    <p>These principles guide everything we do</p>
+                </div>
+
+                <div class="values-grid">
+                    <div class="value-card fade-in-up stagger-1">
+                        <div class="value-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <h3>Transparency First</h3>
+                        <p>No hidden fees, no surprises. You know exactly what you're getting and what you're paying before we start.</p>
+                    </div>
+
+                    <div class="value-card fade-in-up stagger-2">
+                        <div class="value-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3>Speed Matters</h3>
+                        <p>We deliver fast websites, fast. Every site loads in under 2 seconds and most projects are completed in 24-72 hours.</p>
+                    </div>
+
+                    <div class="value-card fade-in-up stagger-3">
+                        <div class="value-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <h3>Client Success</h3>
+                        <p>Your success is our success. We build websites that drive real results for your business.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="process">
+            <div class="process-bg"></div>
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <h2 class="gradient-text">Meet the Team</h2>
+                    <p>The people behind your website</p>
+                </div>
+
+                <div class="team-grid">
+                    <div class="team-member fade-in-up stagger-1">
+                        <div class="team-photo">JS</div>
+                        <h3>Jordan Stevens</h3>
+                        <div class="team-role">Founder & Lead Developer</div>
+                        <p>With over 10 years of experience in web development, Jordan has built everything from enterprise platforms to boutique business sites. Passionate about helping local businesses succeed online.</p>
+                    </div>
+
+                    <div class="team-member fade-in-up stagger-2">
+                        <div class="team-photo" style="background: linear-gradient(135deg, #667eea, #764ba2);">AM</div>
+                        <h3>Alex Martinez</h3>
+                        <div class="team-role">UI/UX Designer</div>
+                        <p>Alex creates beautiful, user-friendly designs that convert. With a background in graphic design and a passion for clean, modern aesthetics, Alex ensures every site looks and feels professional.</p>
+                    </div>
+
+                    <div class="team-member fade-in-up stagger-3">
+                        <div class="team-photo" style="background: linear-gradient(135deg, #f093fb, #f5576c);">TC</div>
+                        <h3>Taylor Chen</h3>
+                        <div class="team-role">Client Success Manager</div>
+                        <p>Taylor is your main point of contact throughout the project. With a background in customer service and project management, Taylor ensures your project runs smoothly from start to finish.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="story-section">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <h2 class="gradient-text">Our Journey</h2>
+                    <p>How we got here</p>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item fade-in-up stagger-1">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-year">2018</div>
+                        <div class="timeline-content">
+                            <h4>studioMaker is Born</h4>
+                            <p>Founded with a mission to help local businesses thrive online. Launched with our first 10 clients and a vision for transparent, affordable web design.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item fade-in-up stagger-2">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-year">2020</div>
+                        <div class="timeline-content">
+                            <h4>Rapid Growth & Team Expansion</h4>
+                            <p>Expanded our team to 5 developers and designers. Reached 250+ happy clients across restaurants, contractors, and retail businesses. Introduced our Professional and Premium packages.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item fade-in-up stagger-3">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-year">2023</div>
+                        <div class="timeline-content">
+                            <h4>500+ Sites Milestone</h4>
+                            <p>Celebrated our 500th website launch with 100% client satisfaction. Launched portfolio and e-commerce services to better serve our growing client base.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item fade-in-up stagger-4">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-year">Today</div>
+                        <div class="timeline-content">
+                            <h4>750+ Sites & Growing</h4>
+                            <p>Now serving clients nationwide with a team of 10+ professionals. We're accepting new clients and excited to help your business succeed online.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="contact">
+            <div class="contact-bg"></div>
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <h2 class="gradient-text">Ready to Work Together?</h2>
+                    <p>Let's discuss your project and see how we can help your business grow.</p>
+                </div>
+
+                <div style="text-align: center;" class="fade-in-up stagger-1">
+                    <a href="contact.html" class="btn btn-primary btn-large">Get in Touch</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/components.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

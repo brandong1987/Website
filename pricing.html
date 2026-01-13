@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | studioMaker - Transparent Web Design Pricing</title>
+    <meta name="description" content="Simple, transparent pricing for professional websites. Choose from Starter ($800), Professional ($1,200), or Premium ($1,800) packages.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <style>
+        .page-hero {
+            padding: 8rem 0 4rem;
+            background: linear-gradient(135deg, var(--color-background), var(--color-surface));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 300px;
+            background: radial-gradient(circle at 50% 0%, rgba(0, 212, 255, 0.1), transparent);
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .page-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.125rem;
+            color: var(--color-text-light);
+        }
+
+        /* FAQ Styles */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--color-surface);
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--color-text);
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: var(--color-primary);
+        }
+
+        .faq-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--color-text-light);
+            line-height: 1.7;
+        }
+
+        @media (min-width: 768px) {
+            .page-hero h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content fade-in-up">
+                    <h1>Simple, <span class="gradient-text">Transparent</span> Pricing</h1>
+                    <p>No hidden fees. No surprises. Just great websites at fair prices.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="pricing">
+            <div class="container">
+                <div class="pricing-grid">
+                    <div class="pricing-card fade-in-up stagger-1">
+                        <div class="pricing-header">
+                            <h3>Starter</h3>
+                            <p class="pricing-description">Perfect for new businesses</p>
+                            <div class="price">$800</div>
+                        </div>
+                        <ul class="features-list">
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Single page website
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Mobile responsive
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Contact form
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Basic SEO setup
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                1 round of revisions
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                48-72 hour delivery
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline btn-block">Get Started</a>
+                    </div>
+
+                    <div class="pricing-card highlighted fade-in-up stagger-2">
+                        <div class="popular-badge">Most Popular</div>
+                        <div class="pricing-header">
+                            <h3>Professional</h3>
+                            <p class="pricing-description">Most popular choice</p>
+                            <div class="price">$1,200</div>
+                        </div>
+                        <ul class="features-list">
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Up to 5 pages
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Mobile responsive
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Contact form + Google Maps
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Full SEO optimization
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Social media links
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                2 rounds of revisions
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                48-72 hour delivery
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary btn-block">Get Started</a>
+                    </div>
+
+                    <div class="pricing-card fade-in-up stagger-3">
+                        <div class="pricing-header">
+                            <h3>Premium</h3>
+                            <p class="pricing-description">For established businesses</p>
+                            <div class="price">$1,800</div>
+                        </div>
+                        <ul class="features-list">
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Up to 10 pages
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Everything in Professional
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Custom animations
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Blog or gallery section
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Analytics integration
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Unlimited revisions
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                3-5 day delivery
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline btn-block">Get Started</a>
+                    </div>
+                </div>
+
+                <p class="pricing-note fade-in-up stagger-4">All packages include domain setup assistance, basic training, and 30 days of support after launch.</p>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="services">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <h2 class="gradient-text">Frequently Asked Questions</h2>
+                    <p>Everything you need to know about our pricing and process</p>
+                </div>
+
+                <div class="faq-container">
+                    <div class="faq-item fade-in-up stagger-1">
+                        <button class="faq-question">
+                            <span>What's included in the base price?</span>
+                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Every package includes professional design, mobile responsiveness, contact forms, basic SEO, and post-launch support. You also get domain setup assistance and training on how to update your site. No hidden fees or surprise charges.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in-up stagger-2">
+                        <button class="faq-question">
+                            <span>How long does it take to build a website?</span>
+                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Most projects are completed incredibly fast! Starter packages typically take 24-48 hours, Professional takes 2-3 days, and Premium takes 3-5 days from start to launch. We'll give you an exact timeline during your consultation.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in-up stagger-3">
+                        <button class="faq-question">
+                            <span>Do I need to provide content and images?</span>
+                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Yes, you'll need to provide your business information, logos, and photos. We can help you source stock photos if needed, or recommend professional photographers in your area. We'll also help you refine your copy to make it conversion-focused.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in-up stagger-4">
+                        <button class="faq-question">
+                            <span>What if I need changes after launch?</span>
+                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                All packages include 30 days of free support after launch for bug fixes and minor tweaks. After that, we offer affordable maintenance plans starting at $99/month, or you can request changes on an hourly basis at $75/hour.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in-up stagger-5">
+                        <button class="faq-question">
+                            <span>Can I update the website myself?</span>
+                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Absolutely! We build sites that are easy to update. We'll provide training and documentation so you can make basic changes yourself. For more complex updates, we're always here to help with our maintenance plans.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in-up stagger-6">
+                        <button class="faq-question">
+                            <span>Do you handle hosting and domain setup?</span>
+                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                We'll guide you through purchasing a domain and setting up hosting (typically $10-20/month through providers like Netlify, Vercel, or traditional hosting). We can handle the technical setup for you at no extra charge.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in-up stagger-7">
+                        <button class="faq-question">
+                            <span>What payment methods do you accept?</span>
+                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                We accept credit cards, bank transfers, and PayPal. Payment is split into two milestones: 50% upfront to begin work, and 50% upon completion before launch. This protects both you and us throughout the project.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in-up stagger-8">
+                        <button class="faq-question">
+                            <span>Can I upgrade my package later?</span>
+                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Yes! Many clients start with a Starter package and upgrade as their business grows. We can add pages, features, and functionality anytime. You'll only pay the difference between packages plus any additional custom features.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in-up stagger-9">
+                        <button class="faq-question">
+                            <span>Do you offer e-commerce functionality?</span>
+                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Yes! E-commerce sites start at $2,500 and include shopping cart, payment processing, product management, and order tracking. Contact us for a custom quote based on your specific product catalog and features needed.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item fade-in-up stagger-10">
+                        <button class="faq-question">
+                            <span>What if I'm not happy with the design?</span>
+                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Your satisfaction is our priority. Each package includes revision rounds where you can request changes. We work closely with you throughout the process to ensure the final design matches your vision. We've maintained 100% client satisfaction by being responsive and flexible.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="contact">
+            <div class="contact-bg"></div>
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <h2 class="gradient-text">Still Have Questions?</h2>
+                    <p>Schedule a free consultation to discuss your project and get a custom quote.</p>
+                </div>
+
+                <div style="text-align: center;" class="fade-in-up stagger-1">
+                    <a href="contact.html" class="btn btn-primary btn-large">Get in Touch</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/components.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/animations.js"></script>
+
+    <script>
+        // FAQ Accordion
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+
+                    // Close all items
+                    faqItems.forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                    });
+
+                    // Toggle current item
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

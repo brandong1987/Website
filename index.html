@@ -5,53 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>studioMaker | Professional Websites for Local Businesses</title>
     <meta name="description" content="We build fast, beautiful websites that turn visitors into customers. Simple pricing, quick turnaround, no hassle.">
-    <link rel="stylesheet" href="styles.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/pages/home.css">
+
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body>
-    <!-- Header -->
-    <header id="header">
-        <nav class="nav-container">
-            <a href="#" class="logo">
-                <span class="logo-studio">studio</span><span class="logo-maker">Maker</span>
-            </a>
-
-            <!-- Desktop Nav -->
-            <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#process">Process</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#contact" class="btn btn-primary">Get Started</a></li>
-            </ul>
-
-            <!-- Mobile Menu Button -->
-            <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
-                <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </nav>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu hidden">
-            <ul>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#process">Process</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#contact" class="btn btn-primary btn-block">Get Started</a></li>
-            </ul>
-        </div>
-    </header>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
 
     <main>
         <!-- Hero Section -->
         <section id="hero" class="hero">
             <div class="hero-bg">
-                <div class="orb orb-1"></div>
-                <div class="orb orb-2"></div>
-                <div class="orb orb-3"></div>
+                <div class="orb orb-1 parallax" data-speed="0.3"></div>
+                <div class="orb orb-2 parallax" data-speed="0.5"></div>
+                <div class="orb orb-3 parallax" data-speed="0.4"></div>
                 <div class="grid-pattern"></div>
             </div>
 
@@ -66,26 +40,26 @@
                 </h1>
 
                 <p class="hero-subheadline">
-                    Stop losing customers to a bad website. We build fast, beautiful sites that turn visitors into paying customers.
+                    Stop losing customers to a bad website. We build fast, beautiful sites in as little as 48 hours that turn visitors into paying customers.
                 </p>
 
                 <div class="hero-buttons">
-                    <a href="#pricing" class="btn btn-primary btn-large">
+                    <a href="pricing.html" class="btn btn-primary btn-large">
                         See Pricing
                         <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                         </svg>
                     </a>
-                    <a href="#services" class="btn btn-outline btn-large">Learn More</a>
+                    <a href="portfolio.html" class="btn btn-outline btn-large">View Our Work</a>
                 </div>
 
                 <div class="hero-stats">
                     <div class="stat">
-                        <div class="stat-number">50+</div>
+                        <div class="stat-number">750+</div>
                         <div class="stat-label">Sites Launched</div>
                     </div>
                     <div class="stat">
-                        <div class="stat-number">2 Weeks</div>
+                        <div class="stat-number">48 Hours</div>
                         <div class="stat-label">Avg. Delivery</div>
                     </div>
                     <div class="stat">
@@ -102,16 +76,16 @@
             </div>
         </section>
 
-        <!-- Services Section -->
+        <!-- Featured Services Section -->
         <section id="services" class="services">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header fade-in-up">
                     <h2 class="gradient-text">What We Build</h2>
                     <p>Professional websites tailored for local businesses</p>
                 </div>
 
                 <div class="services-grid">
-                    <div class="service-card">
+                    <div class="service-card fade-in-up stagger-1">
                         <div class="service-icon">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
@@ -121,7 +95,7 @@
                         <p>Clean, professional sites that establish credibility and drive leads. Perfect for contractors, salons, and service businesses.</p>
                     </div>
 
-                    <div class="service-card">
+                    <div class="service-card fade-in-up stagger-2">
                         <div class="service-icon">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
@@ -131,7 +105,7 @@
                         <p>Menus, hours, reservations, and online ordering. Everything your customers need to find you and order.</p>
                     </div>
 
-                    <div class="service-card">
+                    <div class="service-card fade-in-up stagger-3">
                         <div class="service-icon">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"></path>
@@ -141,283 +115,87 @@
                         <p>Focused, high-converting pages for specific campaigns, promotions, or service offerings.</p>
                     </div>
                 </div>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="services.html" class="btn btn-primary btn-large fade-in-up stagger-4">View All Services</a>
+                </div>
             </div>
         </section>
 
-        <!-- Process Section -->
-        <section id="process" class="process">
+        <!-- Why Choose Us Section -->
+        <section class="process">
             <div class="process-bg"></div>
             <div class="container">
-                <div class="section-header">
-                    <h2 class="gradient-text">How It Works</h2>
-                    <p>From idea to live website in 2 weeks</p>
+                <div class="section-header fade-in-up">
+                    <h2 class="gradient-text">Why Choose studioMaker?</h2>
+                    <p>Lightning-fast delivery without sacrificing quality</p>
                 </div>
 
                 <div class="process-steps">
                     <div class="connecting-line"></div>
 
-                    <div class="step">
+                    <div class="step fade-in-up stagger-1">
                         <div class="step-number-wrapper">
-                            <div class="step-number">01</div>
+                            <div class="step-number">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 2rem; height: 2rem;">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
                         </div>
-                        <h3>Discovery Call</h3>
-                        <p>We learn about your business, goals, and what makes you different. 30 minutes, no pressure.</p>
+                        <h3>Lightning Fast</h3>
+                        <p>Your website loads in under 2 seconds. Fast sites keep visitors engaged and rank higher on Google.</p>
                     </div>
 
-                    <div class="step">
+                    <div class="step fade-in-up stagger-2">
                         <div class="step-number-wrapper">
-                            <div class="step-number">02</div>
+                            <div class="step-number">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 2rem; height: 2rem;">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
                         </div>
-                        <h3>Design & Build</h3>
-                        <p>We create your site with your brand colors, content, and features. You review and request changes.</p>
+                        <h3>Mobile First</h3>
+                        <p>Over 60% of visitors use mobile. We design for phones first, then scale up to desktop beautifully.</p>
                     </div>
 
-                    <div class="step">
+                    <div class="step fade-in-up stagger-3">
                         <div class="step-number-wrapper">
-                            <div class="step-number">03</div>
+                            <div class="step-number">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 2rem; height: 2rem;">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
                         </div>
-                        <h3>Launch</h3>
-                        <p>We handle hosting, domain setup, and go live. Your site is ready to bring in customers.</p>
+                        <h3>Transparent Pricing</h3>
+                        <p>No hidden fees or surprise charges. You know exactly what you're paying upfront. Simple, honest pricing.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Pricing Section -->
-        <section id="pricing" class="pricing">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="gradient-text">Simple Pricing</h2>
-                    <p>No hidden fees. No monthly contracts. Just great websites.</p>
-                </div>
-
-                <div class="pricing-grid">
-                    <div class="pricing-card">
-                        <div class="pricing-header">
-                            <h3>Starter</h3>
-                            <p class="pricing-description">Perfect for new businesses</p>
-                            <div class="price">$800</div>
-                        </div>
-                        <ul class="features-list">
-                            <li>
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Single page website
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Mobile responsive
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Contact form
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Basic SEO setup
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                1 round of revisions
-                            </li>
-                        </ul>
-                        <a href="#contact" class="btn btn-outline btn-block">Get Started</a>
-                    </div>
-
-                    <div class="pricing-card highlighted">
-                        <div class="popular-badge">Most Popular</div>
-                        <div class="pricing-header">
-                            <h3>Professional</h3>
-                            <p class="pricing-description">Most popular choice</p>
-                            <div class="price">$1,200</div>
-                        </div>
-                        <ul class="features-list">
-                            <li>
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Up to 5 pages
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Mobile responsive
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Contact form + Google Maps
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Full SEO optimization
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Social media links
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                2 rounds of revisions
-                            </li>
-                        </ul>
-                        <a href="#contact" class="btn btn-primary btn-block">Get Started</a>
-                    </div>
-
-                    <div class="pricing-card">
-                        <div class="pricing-header">
-                            <h3>Premium</h3>
-                            <p class="pricing-description">For established businesses</p>
-                            <div class="price">$1,800</div>
-                        </div>
-                        <ul class="features-list">
-                            <li>
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Up to 10 pages
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Everything in Professional
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Custom animations
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Blog or gallery section
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Analytics integration
-                            </li>
-                            <li>
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Unlimited revisions
-                            </li>
-                        </ul>
-                        <a href="#contact" class="btn btn-outline btn-block">Get Started</a>
-                    </div>
-                </div>
-
-                <p class="pricing-note">All packages include domain setup assistance, basic training, and 30 days of support after launch.</p>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
+        <!-- Call to Action Section -->
+        <section class="contact">
             <div class="contact-bg"></div>
             <div class="container">
-                <div class="section-header">
-                    <h2 class="gradient-text">Let's Talk</h2>
-                    <p>Ready to get a website that works? Send us a message and we'll get back to you within 24 hours.</p>
+                <div class="section-header fade-in-up">
+                    <h2 class="gradient-text">Ready to Get Started?</h2>
+                    <p>Let's build a website that grows your business. Schedule a free 30-minute consultation to discuss your project.</p>
                 </div>
 
-                <div class="contact-form-wrapper">
-                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">Your Name</label>
-                                <input type="text" id="name" name="name" required placeholder="John Smith">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" required placeholder="john@example.com">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="business">What type of business do you have?</label>
-                            <select id="business" name="business">
-                                <option value="">Select your industry...</option>
-                                <option value="restaurant">Restaurant / Cafe</option>
-                                <option value="contractor">Contractor / Home Services</option>
-                                <option value="salon">Salon / Spa</option>
-                                <option value="retail">Retail / Shop</option>
-                                <option value="professional">Professional Services</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="package">Which package are you interested in?</label>
-                            <select id="package" name="package">
-                                <option value="">Select a package...</option>
-                                <option value="starter">Starter ($800)</option>
-                                <option value="professional">Professional ($1,200)</option>
-                                <option value="premium">Premium ($1,800)</option>
-                                <option value="unsure">Not sure yet</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Tell us about your project</label>
-                            <textarea id="message" name="message" rows="4" placeholder="What are you looking for in a website? Any specific features or pages you need?"></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary btn-large btn-block">Send Message</button>
-                    </form>
-
-                    <div class="contact-info">
-                        <p>Prefer email? Reach out directly at <a href="mailto:hello@studiomaker.io">hello@studiomaker.io</a></p>
-                    </div>
+                <div style="text-align: center; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;" class="fade-in-up stagger-1">
+                    <a href="contact.html" class="btn btn-primary btn-large">Get Your Free Quote</a>
+                    <a href="portfolio.html" class="btn btn-outline btn-large">See Our Portfolio</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="#" class="logo">
-                        <span class="logo-studio">studio</span><span class="logo-maker">Maker</span>
-                    </a>
-                    <p>Building websites that work</p>
-                </div>
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
 
-                <div class="footer-copyright">
-                    <p>&copy; 2026 studioMaker. All rights reserved.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Header background on scroll
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu on link click
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
+    <!-- Scripts -->
+    <script src="js/components.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/animations.js"></script>
 </body>
 </html>

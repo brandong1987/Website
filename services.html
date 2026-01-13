@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | studioMaker - Professional Web Design Services</title>
+    <meta name="description" content="Explore our web design services including business websites, e-commerce, restaurant sites, and more. Professional, affordable, and conversion-focused.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <style>
+        .page-hero {
+            padding: 8rem 0 4rem;
+            background: linear-gradient(135deg, var(--color-background), var(--color-surface));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 300px;
+            background: radial-gradient(circle at 50% 0%, rgba(0, 212, 255, 0.1), transparent);
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .page-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.125rem;
+            color: var(--color-text-light);
+        }
+
+        .service-detail {
+            background-color: var(--color-surface);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 2rem;
+        }
+
+        .service-detail-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-detail-icon {
+            width: 4rem;
+            height: 4rem;
+            background-color: rgba(0, 212, 255, 0.1);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary);
+            flex-shrink: 0;
+        }
+
+        .service-detail-icon svg {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+
+        .service-detail h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .service-detail-description {
+            color: var(--color-text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            color: var(--color-text-light);
+        }
+
+        .service-features svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: var(--color-primary);
+            flex-shrink: 0;
+            margin-top: 0.125rem;
+        }
+
+        .comparison-table {
+            overflow-x: auto;
+            margin-top: 3rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--color-surface);
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        th {
+            background-color: rgba(0, 212, 255, 0.1);
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        td {
+            color: var(--color-text-light);
+        }
+
+        .check-icon {
+            color: var(--color-primary);
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .page-hero h1 {
+                font-size: 3rem;
+            }
+            .service-features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content fade-in-up">
+                    <h1>Our <span class="gradient-text">Services</span></h1>
+                    <p>Professional websites tailored to your business needs. Lightning-fast delivery (24-48 hours), beautiful design, and optimized to convert visitors into customers.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Detail Section -->
+        <section class="services">
+            <div class="container">
+                <!-- Business Websites -->
+                <div class="service-detail fade-in-up stagger-1">
+                    <div class="service-detail-header">
+                        <div class="service-detail-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Business Websites</h3>
+                        </div>
+                    </div>
+                    <p class="service-detail-description">Perfect for contractors, salons, law firms, consulting services, and any professional service business. These sites establish credibility, showcase your expertise, and drive qualified leads. We focus on clean design, clear messaging, and strong calls-to-action that convert visitors into paying customers.</p>
+                    <ul class="service-features">
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Professional multi-page layout</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Service/product showcase pages</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Contact forms with lead capture</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Google Maps integration</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Testimonials and reviews section</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Mobile-responsive design</li>
+                    </ul>
+                </div>
+
+                <!-- Restaurant Sites -->
+                <div class="service-detail fade-in-up stagger-2">
+                    <div class="service-detail-header">
+                        <div class="service-detail-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Restaurant & Cafe Websites</h3>
+                        </div>
+                    </div>
+                    <p class="service-detail-description">Designed specifically for restaurants, cafes, bars, and food trucks. Make it easy for hungry customers to find your menu, view your hours, get directions, and place orders. Beautiful food photography, easy menu updates, and seamless online ordering integration.</p>
+                    <ul class="service-features">
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Digital menu with pricing</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Hours and location information</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Online ordering integration</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Reservation system setup</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Photo gallery showcase</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Social media integration</li>
+                    </ul>
+                </div>
+
+                <!-- E-commerce Sites -->
+                <div class="service-detail fade-in-up stagger-3">
+                    <div class="service-detail-header">
+                        <div class="service-detail-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>E-Commerce Stores</h3>
+                        </div>
+                    </div>
+                    <p class="service-detail-description">Sell products online with a fully functional e-commerce website. Perfect for retail stores, artisan shops, and product-based businesses. Secure payment processing, inventory management, and a seamless shopping experience that turns browsers into buyers.</p>
+                    <ul class="service-features">
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Product catalog with categories</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Shopping cart functionality</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Secure payment processing (Stripe, PayPal)</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Inventory management system</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Order tracking and management</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Customer account system</li>
+                    </ul>
+                </div>
+
+                <!-- Landing Pages -->
+                <div class="service-detail fade-in-up stagger-4">
+                    <div class="service-detail-header">
+                        <div class="service-detail-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Landing Pages</h3>
+                        </div>
+                    </div>
+                    <p class="service-detail-description">High-converting single-page sites designed for specific campaigns, product launches, or service promotions. Every element is optimized to drive one action: get visitors to convert. Perfect for lead generation, event registration, or product pre-orders.</p>
+                    <ul class="service-features">
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Conversion-focused design</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Compelling headline and copy</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Strong call-to-action buttons</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Lead capture forms</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Analytics integration</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> A/B testing ready</li>
+                    </ul>
+                </div>
+
+                <!-- Portfolio Sites -->
+                <div class="service-detail fade-in-up stagger-5">
+                    <div class="service-detail-header">
+                        <div class="service-detail-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Portfolio Websites</h3>
+                        </div>
+                    </div>
+                    <p class="service-detail-description">Showcase your creative work with a stunning portfolio site. Perfect for photographers, designers, artists, and creative professionals. Beautiful galleries, project case studies, and a layout that lets your work shine.</p>
+                    <ul class="service-features">
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Project showcase galleries</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Filterable portfolio grid</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Lightbox image viewer</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> About/bio section</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Contact form</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Social media links</li>
+                    </ul>
+                </div>
+
+                <!-- Maintenance Plans -->
+                <div class="service-detail fade-in-up stagger-6">
+                    <div class="service-detail-header">
+                        <div class="service-detail-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Website Maintenance & Support</h3>
+                        </div>
+                    </div>
+                    <p class="service-detail-description">Keep your website running smoothly with our ongoing maintenance plans. We handle updates, backups, security, and content changes so you can focus on running your business. Peace of mind included.</p>
+                    <ul class="service-features">
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Weekly automated backups</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Security monitoring and updates</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Content updates (text, images)</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Performance optimization</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Priority email support</li>
+                        <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Monthly performance reports</li>
+                    </ul>
+                </div>
+
+                <!-- Service Comparison Table -->
+                <div class="fade-in-up" style="margin-top: 4rem;">
+                    <div class="section-header">
+                        <h2 class="gradient-text">Service Comparison</h2>
+                        <p>Find the right solution for your business</p>
+                    </div>
+
+                    <div class="comparison-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>Business</th>
+                                    <th>Restaurant</th>
+                                    <th>E-Commerce</th>
+                                    <th>Landing</th>
+                                    <th>Portfolio</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Mobile Responsive</td>
+                                    <td class="check-icon">✓</td>
+                                    <td class="check-icon">✓</td>
+                                    <td class="check-icon">✓</td>
+                                    <td class="check-icon">✓</td>
+                                    <td class="check-icon">✓</td>
+                                </tr>
+                                <tr>
+                                    <td>Contact Forms</td>
+                                    <td class="check-icon">✓</td>
+                                    <td class="check-icon">✓</td>
+                                    <td class="check-icon">✓</td>
+                                    <td class="check-icon">✓</td>
+                                    <td class="check-icon">✓</td>
+                                </tr>
+                                <tr>
+                                    <td>SEO Optimization</td>
+                                    <td class="check-icon">✓</td>
+                                    <td class="check-icon">✓</td>
+                                    <td class="check-icon">✓</td>
+                                    <td class="check-icon">✓</td>
+                                    <td class="check-icon">✓</td>
+                                </tr>
+                                <tr>
+                                    <td>Multi-Page</td>
+                                    <td class="check-icon">✓</td>
+                                    <td class="check-icon">✓</td>
+                                    <td class="check-icon">✓</td>
+                                    <td>-</td>
+                                    <td class="check-icon">✓</td>
+                                </tr>
+                                <tr>
+                                    <td>Menu/Catalog</td>
+                                    <td>-</td>
+                                    <td class="check-icon">✓</td>
+                                    <td class="check-icon">✓</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>Online Ordering</td>
+                                    <td>-</td>
+                                    <td class="check-icon">✓</td>
+                                    <td class="check-icon">✓</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>Payment Processing</td>
+                                    <td>-</td>
+                                    <td>Optional</td>
+                                    <td class="check-icon">✓</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>Image Galleries</td>
+                                    <td>Optional</td>
+                                    <td class="check-icon">✓</td>
+                                    <td class="check-icon">✓</td>
+                                    <td>-</td>
+                                    <td class="check-icon">✓</td>
+                                </tr>
+                                <tr>
+                                    <td>Lead Conversion Focus</td>
+                                    <td class="check-icon">✓</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td class="check-icon">✓✓</td>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="contact">
+            <div class="contact-bg"></div>
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <h2 class="gradient-text">Ready to Get Started?</h2>
+                    <p>Let's discuss which service is right for your business.</p>
+                </div>
+
+                <div style="text-align: center; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;" class="fade-in-up stagger-1">
+                    <a href="contact.html" class="btn btn-primary btn-large">Get Your Free Quote</a>
+                    <a href="pricing.html" class="btn btn-outline btn-large">View Pricing</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/components.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

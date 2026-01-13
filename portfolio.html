@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Portfolio | studioMaker - Recent Web Design Projects</title>
+    <meta name="description" content="Browse our portfolio of professional websites for local businesses. See examples of our work across restaurants, contractors, retail, and more.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <style>
+        /* Portfolio Page Styles */
+        .page-hero {
+            padding: 8rem 0 4rem;
+            background: linear-gradient(135deg, var(--color-background), var(--color-surface));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 300px;
+            background: radial-gradient(circle at 50% 0%, rgba(0, 212, 255, 0.1), transparent);
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .page-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.125rem;
+            color: var(--color-text-light);
+        }
+
+        /* Filter Buttons */
+        .filter-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--color-surface);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            color: var(--color-text);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        .filter-btn.active {
+            background-color: var(--color-primary);
+            border-color: var(--color-primary);
+            color: var(--color-background);
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .page-hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .portfolio-item {
+            background-color: var(--color-surface);
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+            border-color: rgba(0, 212, 255, 0.5);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-image::before {
+            opacity: 1;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .view-project-btn {
+            background-color: var(--color-primary);
+            color: var(--color-background);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .portfolio-info {
+            padding: 1.5rem;
+        }
+
+        .portfolio-category {
+            color: var(--color-primary);
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-info h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-info p {
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Modal Styles */
+        .portfolio-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .portfolio-modal.active {
+            display: flex;
+        }
+
+        .modal-backdrop {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            position: relative;
+            z-index: 101;
+            background-color: var(--color-surface);
+            border-radius: 1rem;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 102;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background-color: var(--color-primary);
+        }
+
+        .modal-close svg {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        .modal-body {
+            display: grid;
+            gap: 0;
+        }
+
+        @media (min-width: 768px) {
+            .modal-body {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .modal-project-visual {
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            border-radius: 1rem 1rem 0 0;
+        }
+
+        @media (min-width: 768px) {
+            .modal-project-visual {
+                height: auto;
+                border-radius: 1rem 0 0 1rem;
+            }
+        }
+
+        .project-name-overlay {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .modal-details {
+            padding: 2rem;
+        }
+
+        .modal-category {
+            color: var(--color-primary);
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .modal-description {
+            color: var(--color-text-light);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-tech {
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .modal-details h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .modal-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .modal-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-text-light);
+        }
+
+        .modal-features svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: var(--color-primary);
+            flex-shrink: 0;
+            margin-top: 0.125rem;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content fade-in-up">
+                    <h1>Our <span class="gradient-text">Portfolio</span></h1>
+                    <p>Explore our recent projects and see the quality of work we deliver for local businesses.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section class="services">
+            <div class="container">
+                <!-- Filter Buttons -->
+                <div class="filter-buttons fade-in-up">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="business">Business</button>
+                    <button class="filter-btn" data-filter="restaurant">Restaurant</button>
+                    <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
+                    <button class="filter-btn" data-filter="landing">Landing Page</button>
+                </div>
+
+                <!-- Portfolio Grid -->
+                <div class="portfolio-grid">
+                    <!-- Project 1 -->
+                    <div class="portfolio-item fade-in-up stagger-1"
+                         data-category="restaurant"
+                         data-title="Bella's Italian Restaurant"
+                         data-description="A modern, elegant website for a family-owned Italian restaurant featuring an interactive menu, online reservations, and beautiful food photography galleries. Integrated with their POS system for seamless online ordering."
+                         data-tech="HTML, CSS, JavaScript, Reservation API"
+                         data-features="Digital menu with search, Online reservation system, Photo gallery showcase, Mobile ordering integration, Customer reviews section"
+                         data-gradient="linear-gradient(135deg, #667eea 0%, #764ba2 100%)">
+                        <div class="portfolio-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            Bella's Italian
+                            <div class="portfolio-overlay">
+                                <span class="view-project-btn">
+                                    View Project
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 1.25rem; height: 1.25rem;">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <div class="portfolio-category">Restaurant</div>
+                            <h3>Bella's Italian Restaurant</h3>
+                            <p>Full menu, online ordering, and reservation system</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="portfolio-item fade-in-up stagger-2"
+                         data-category="business"
+                         data-title="Smith & Sons Contractors"
+                         data-description="Professional contractor website showcasing their services, past projects, and customer testimonials. Features a quote request system and before/after project gallery that drives consistent lead generation."
+                         data-tech="HTML, CSS, JavaScript, Contact Forms"
+                         data-features="Service showcase pages, Before/after gallery, Quote request forms, Testimonials carousel, Google Maps integration"
+                         data-gradient="linear-gradient(135deg, #f093fb 0%, #f5576c 100%)">
+                        <div class="portfolio-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                            Smith & Sons
+                            <div class="portfolio-overlay">
+                                <span class="view-project-btn">
+                                    View Project
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 1.25rem; height: 1.25rem;">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <div class="portfolio-category">Business</div>
+                            <h3>Smith & Sons Contractors</h3>
+                            <p>Service showcase with project gallery and lead forms</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="portfolio-item fade-in-up stagger-3"
+                         data-category="business"
+                         data-title="Luxe Salon & Spa"
+                         data-description="Elegant spa and salon website featuring service menus, staff bios, and an integrated booking system. Clean design with soothing colors that reflects their premium brand positioning."
+                         data-tech="HTML, CSS, JavaScript, Booking Integration"
+                         data-features="Service menu with pricing, Staff profiles and bios, Online booking system, Gallery of work, Gift certificate sales"
+                         data-gradient="linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)">
+                        <div class="portfolio-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                            Luxe Salon
+                            <div class="portfolio-overlay">
+                                <span class="view-project-btn">
+                                    View Project
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 1.25rem; height: 1.25rem;">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <div class="portfolio-category">Business</div>
+                            <h3>Luxe Salon & Spa</h3>
+                            <p>Booking system integration with service showcase</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="portfolio-item fade-in-up stagger-4"
+                         data-category="ecommerce"
+                         data-title="Mountain Peak Outdoor Gear"
+                         data-description="Full-featured e-commerce store for outdoor equipment and apparel. Custom product filtering, size guides, customer reviews, and secure checkout. Integrated inventory management and order tracking."
+                         data-tech="HTML, CSS, JavaScript, Stripe Payment, CMS"
+                         data-features="Product catalog with 200+ items, Shopping cart and checkout, Secure payment processing, Inventory management, Order tracking system"
+                         data-gradient="linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)">
+                        <div class="portfolio-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                            Mountain Peak
+                            <div class="portfolio-overlay">
+                                <span class="view-project-btn">
+                                    View Project
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 1.25rem; height: 1.25rem;">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <div class="portfolio-category">E-Commerce</div>
+                            <h3>Mountain Peak Outdoor Gear</h3>
+                            <p>Full e-commerce store with cart and secure payments</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="portfolio-item fade-in-up stagger-5"
+                         data-category="restaurant"
+                         data-title="Urban Coffee Co"
+                         data-description="Hip, modern coffee shop website with location finder for their 3 stores, loyalty program signup, and seasonal menu updates. Mobile-first design perfect for on-the-go customers."
+                         data-tech="HTML, CSS, JavaScript, Google Maps API"
+                         data-features="Multi-location finder, Seasonal menu showcase, Loyalty program signup, Mobile ordering, Event calendar"
+                         data-gradient="linear-gradient(135deg, #fa709a 0%, #fee140 100%)">
+                        <div class="portfolio-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                            Urban Coffee
+                            <div class="portfolio-overlay">
+                                <span class="view-project-btn">
+                                    View Project
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 1.25rem; height: 1.25rem;">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <div class="portfolio-category">Restaurant</div>
+                            <h3>Urban Coffee Co</h3>
+                            <p>Multi-location finder and mobile ordering</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="portfolio-item fade-in-up stagger-6"
+                         data-category="landing"
+                         data-title="FitnessPro Challenge Landing"
+                         data-description="High-converting landing page for a 30-day fitness challenge. Optimized for lead capture with compelling copy, social proof, countdown timer, and video testimonials. Achieved 42% conversion rate."
+                         data-tech="HTML, CSS, JavaScript, Email Integration"
+                         data-features="Lead capture form, Countdown timer, Video testimonials, Social proof badges, Email automation integration"
+                         data-gradient="linear-gradient(135deg, #30cfd0 0%, #330867 100%)">
+                        <div class="portfolio-image" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
+                            FitnessPro
+                            <div class="portfolio-overlay">
+                                <span class="view-project-btn">
+                                    View Project
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 1.25rem; height: 1.25rem;">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <div class="portfolio-category">Landing Page</div>
+                            <h3>FitnessPro Challenge</h3>
+                            <p>High-converting landing page with 42% conversion</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 7 -->
+                    <div class="portfolio-item fade-in-up stagger-7"
+                         data-category="business"
+                         data-title="Green Thumb Landscaping"
+                         data-description="Beautiful landscaping company website featuring seasonal service packages, maintenance plans, and an inspiring before/after project portfolio. Integrated quote calculator for instant pricing estimates."
+                         data-tech="HTML, CSS, JavaScript, Quote Calculator"
+                         data-features="Before/after portfolio, Service package builder, Instant quote calculator, Seasonal promotions, Maintenance plan signup"
+                         data-gradient="linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)">
+                        <div class="portfolio-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                            Green Thumb
+                            <div class="portfolio-overlay">
+                                <span class="view-project-btn">
+                                    View Project
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 1.25rem; height: 1.25rem;">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <div class="portfolio-category">Business</div>
+                            <h3>Green Thumb Landscaping</h3>
+                            <p>Portfolio showcase with quote calculator</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 8 -->
+                    <div class="portfolio-item fade-in-up stagger-8"
+                         data-category="ecommerce"
+                         data-title="Boutique Fashion Store"
+                         data-description="Chic online boutique with curated collections, size guides, and style recommendations. Features wishlist functionality, gift cards, and personalized shopping experience with saved preferences."
+                         data-tech="HTML, CSS, JavaScript, PayPal, Shopify"
+                         data-features="Curated collections, Size guide tool, Wishlist functionality, Gift card sales, Style quiz for recommendations"
+                         data-gradient="linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)">
+                        <div class="portfolio-image" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);">
+                            Boutique Fashion
+                            <div class="portfolio-overlay">
+                                <span class="view-project-btn">
+                                    View Project
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 1.25rem; height: 1.25rem;">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <div class="portfolio-category">E-Commerce</div>
+                            <h3>Boutique Fashion Store</h3>
+                            <p>Online boutique with curated collections</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 9 -->
+                    <div class="portfolio-item fade-in-up stagger-9"
+                         data-category="business"
+                         data-title="Davis Law Firm"
+                         data-description="Professional, authoritative law firm website with practice area details, attorney profiles, case results, and client intake forms. Secure client portal for document sharing and case updates."
+                         data-tech="HTML, CSS, JavaScript, Secure Forms"
+                         data-features="Practice area pages, Attorney bios and credentials, Case results showcase, Secure client intake forms, Blog for legal insights"
+                         data-gradient="linear-gradient(135deg, #6a11cb 0%, #2575fc 100%)">
+                        <div class="portfolio-image" style="background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);">
+                            Davis Law
+                            <div class="portfolio-overlay">
+                                <span class="view-project-btn">
+                                    View Project
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 1.25rem; height: 1.25rem;">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <div class="portfolio-category">Business</div>
+                            <h3>Davis Law Firm</h3>
+                            <p>Professional services with secure client portal</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 10 -->
+                    <div class="portfolio-item fade-in-up stagger-10"
+                         data-category="restaurant"
+                         data-title="Artisan Bakery"
+                         data-description="Warm, inviting bakery website highlighting daily fresh items, catering services, and custom cake orders. Features online ordering for pickup with real-time inventory updates."
+                         data-tech="HTML, CSS, JavaScript, Order Management"
+                         data-features="Daily menu updates, Custom cake order forms, Catering packages, Online pickup ordering, Allergen information"
+                         data-gradient="linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)">
+                        <div class="portfolio-image" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                            Artisan Bakery
+                            <div class="portfolio-overlay">
+                                <span class="view-project-btn">
+                                    View Project
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 1.25rem; height: 1.25rem;">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <div class="portfolio-category">Restaurant</div>
+                            <h3>Artisan Bakery</h3>
+                            <p>Custom orders and catering with online pickup</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 11 -->
+                    <div class="portfolio-item fade-in-up stagger-11"
+                         data-category="business"
+                         data-title="Auto Care Pro"
+                         data-description="Automotive service center website with service booking, maintenance reminders, and customer vehicle history. Features pricing transparency and educational content about car care."
+                         data-tech="HTML, CSS, JavaScript, Booking System"
+                         data-features="Online service booking, Maintenance reminders, Price transparency tool, Vehicle history tracking, Educational blog content"
+                         data-gradient="linear-gradient(135deg, #ff6e7f 0%, #bfe9ff 100%)">
+                        <div class="portfolio-image" style="background: linear-gradient(135deg, #ff6e7f 0%, #bfe9ff 100%);">
+                            Auto Care Pro
+                            <div class="portfolio-overlay">
+                                <span class="view-project-btn">
+                                    View Project
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 1.25rem; height: 1.25rem;">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <div class="portfolio-category">Business</div>
+                            <h3>Auto Care Pro</h3>
+                            <p>Service booking with maintenance tracking</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 12 -->
+                    <div class="portfolio-item fade-in-up stagger-12"
+                         data-category="landing"
+                         data-title="Sunset Real Estate Launch"
+                         data-description="Premium landing page for new luxury condo development. Features interactive floor plans, virtual tours, pricing calculator, and priority registration for early access. Captured over 500 qualified leads."
+                         data-tech="HTML, CSS, JavaScript, 3D Tours"
+                         data-features="Interactive floor plans, Virtual 3D tours, Pricing calculator, Priority registration forms, Neighborhood highlights"
+                         data-gradient="linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)">
+                        <div class="portfolio-image" style="background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);">
+                            Sunset Real Estate
+                            <div class="portfolio-overlay">
+                                <span class="view-project-btn">
+                                    View Project
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 1.25rem; height: 1.25rem;">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <div class="portfolio-category">Landing Page</div>
+                            <h3>Sunset Real Estate Launch</h3>
+                            <p>Property showcase with virtual tours (500+ leads)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="contact">
+            <div class="contact-bg"></div>
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <h2 class="gradient-text">Ready to Join Our Portfolio?</h2>
+                    <p>Let's create something amazing for your business.</p>
+                </div>
+
+                <div style="text-align: center;" class="fade-in-up stagger-1">
+                    <a href="contact.html" class="btn btn-primary btn-large">Get Started</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/components.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/portfolio.js"></script>
+</body>
+</html>
