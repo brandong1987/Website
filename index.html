@@ -6,6 +6,13 @@
     <title>studioMaker | Professional Websites for Local Businesses</title>
     <meta name="description" content="We build fast, beautiful websites that turn visitors into customers. Simple pricing, quick turnaround, no hassle.">
 
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#00D4FF">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="studioMaker">
+
     <!-- CSS -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/components.css">
@@ -76,6 +83,33 @@
             </div>
         </section>
 
+        <!-- Trusted By Section -->
+        <section class="trusted-by">
+            <div class="container">
+                <p class="trusted-label fade-in-up">Trusted by businesses across industries</p>
+                <div class="logo-grid fade-in-up stagger-1">
+                    <div class="client-logo">
+                        <div class="logo-placeholder">Bella's Italian</div>
+                    </div>
+                    <div class="client-logo">
+                        <div class="logo-placeholder">Smith & Sons</div>
+                    </div>
+                    <div class="client-logo">
+                        <div class="logo-placeholder">Luxe Salon</div>
+                    </div>
+                    <div class="client-logo">
+                        <div class="logo-placeholder">Urban Coffee</div>
+                    </div>
+                    <div class="client-logo">
+                        <div class="logo-placeholder">Mountain Peak</div>
+                    </div>
+                    <div class="client-logo">
+                        <div class="logo-placeholder">Davis Law</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Featured Services Section -->
         <section id="services" class="services">
             <div class="container">
@@ -118,6 +152,261 @@
 
                 <div style="text-align: center; margin-top: 3rem;">
                     <a href="services.html" class="btn btn-primary btn-large fade-in-up stagger-4">View All Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <h2 class="gradient-text">What Our Clients Say</h2>
+                    <p>Don't just take our word for it</p>
+                </div>
+
+                <div id="testimonials-carousel" class="testimonials-container fade-in-up stagger-1">
+                    <div class="testimonial-item active">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p>"studioMaker built our restaurant website in just 48 hours and it looks incredible. Online orders increased by 40% in the first month!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">MB</div>
+                                <div class="author-info">
+                                    <div class="author-name">Maria Bella</div>
+                                    <div class="author-role">Owner, Bella's Italian</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p>"Fast, professional, and affordable. Our new site has helped us land 3 major contracts. Best investment we've made this year."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">JS</div>
+                                <div class="author-info">
+                                    <div class="author-name">John Smith</div>
+                                    <div class="author-role">Owner, Smith & Sons Contractors</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p>"The booking system integration has been a game-changer. We're now booking 60% more appointments thanks to online scheduling."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">LC</div>
+                                <div class="author-info">
+                                    <div class="author-name">Laura Chen</div>
+                                    <div class="author-role">Manager, Luxe Salon & Spa</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p>"Professional team, clear communication, and delivered exactly what we needed. Our landing page converted 42% of visitors!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">RP</div>
+                                <div class="author-info">
+                                    <div class="author-name">Ryan Peterson</div>
+                                    <div class="author-role">Marketing Director, FitnessPro</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Before/After Results Section -->
+        <section class="results-section">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <h2 class="gradient-text">Real Results for Real Businesses</h2>
+                    <p>See how we've transformed businesses like yours</p>
+                </div>
+
+                <div class="results-grid">
+                    <!-- Result 1: Restaurant -->
+                    <div class="result-card fade-in-up stagger-1">
+                        <div class="result-header">
+                            <div class="result-client">
+                                <div class="result-avatar">BI</div>
+                                <div>
+                                    <h4>Bella's Italian</h4>
+                                    <p>Restaurant</p>
+                                </div>
+                            </div>
+                            <div class="result-badge">48hr delivery</div>
+                        </div>
+
+                        <div class="result-comparison">
+                            <div class="comparison-item before">
+                                <div class="comparison-label">Before</div>
+                                <div class="comparison-mockup">
+                                    <div class="mockup-placeholder old">
+                                        <span>Outdated Design</span>
+                                        <small>Slow Loading • No Mobile Support • Hard to Navigate</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="comparison-arrow">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                                </svg>
+                            </div>
+
+                            <div class="comparison-item after">
+                                <div class="comparison-label">After</div>
+                                <div class="comparison-mockup">
+                                    <div class="mockup-placeholder new">
+                                        <span>Modern Design</span>
+                                        <small>Fast • Mobile-First • Online Ordering</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="result-metrics">
+                            <div class="metric">
+                                <div class="metric-value">+40%</div>
+                                <div class="metric-label">Online Orders</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">2.1s</div>
+                                <div class="metric-label">Load Time</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">85%</div>
+                                <div class="metric-label">Mobile Traffic</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Result 2: Contractor -->
+                    <div class="result-card fade-in-up stagger-2">
+                        <div class="result-header">
+                            <div class="result-client">
+                                <div class="result-avatar">SS</div>
+                                <div>
+                                    <h4>Smith & Sons</h4>
+                                    <p>Contractor</p>
+                                </div>
+                            </div>
+                            <div class="result-badge">24hr delivery</div>
+                        </div>
+
+                        <div class="result-comparison">
+                            <div class="comparison-item before">
+                                <div class="comparison-label">Before</div>
+                                <div class="comparison-mockup">
+                                    <div class="mockup-placeholder old">
+                                        <span>Generic Template</span>
+                                        <small>No Portfolio • Poor SEO • Outdated</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="comparison-arrow">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                                </svg>
+                            </div>
+
+                            <div class="comparison-item after">
+                                <div class="comparison-label">After</div>
+                                <div class="comparison-mockup">
+                                    <div class="mockup-placeholder new">
+                                        <span>Professional Site</span>
+                                        <small>Project Gallery • Lead Forms • SEO Optimized</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="result-metrics">
+                            <div class="metric">
+                                <div class="metric-value">3x</div>
+                                <div class="metric-label">More Leads</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">1.8s</div>
+                                <div class="metric-label">Load Time</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">#1</div>
+                                <div class="metric-label">Local Search</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Result 3: Salon -->
+                    <div class="result-card fade-in-up stagger-3">
+                        <div class="result-header">
+                            <div class="result-client">
+                                <div class="result-avatar">LS</div>
+                                <div>
+                                    <h4>Luxe Salon & Spa</h4>
+                                    <p>Beauty & Wellness</p>
+                                </div>
+                            </div>
+                            <div class="result-badge">72hr delivery</div>
+                        </div>
+
+                        <div class="result-comparison">
+                            <div class="comparison-item before">
+                                <div class="comparison-label">Before</div>
+                                <div class="comparison-mockup">
+                                    <div class="mockup-placeholder old">
+                                        <span>Phone-Only Booking</span>
+                                        <small>Missed Calls • No Online Presence</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="comparison-arrow">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                                </svg>
+                            </div>
+
+                            <div class="comparison-item after">
+                                <div class="comparison-label">After</div>
+                                <div class="comparison-mockup">
+                                    <div class="mockup-placeholder new">
+                                        <span>Online Booking System</span>
+                                        <small>24/7 Scheduling • Service Menu • Gallery</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="result-metrics">
+                            <div class="metric">
+                                <div class="metric-value">+60%</div>
+                                <div class="metric-label">Appointments</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">90%</div>
+                                <div class="metric-label">Online Booked</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">4.9★</div>
+                                <div class="metric-label">Avg Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="portfolio.html" class="btn btn-primary btn-large fade-in-up stagger-4">See More Case Studies</a>
                 </div>
             </div>
         </section>
@@ -194,8 +483,11 @@
     <div id="footer-placeholder"></div>
 
     <!-- Scripts -->
+    <script src="js/schema.js"></script>
     <script src="js/components.js"></script>
+    <script src="js/theme-toggle.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/animations.js"></script>
+    <script src="js/testimonials.js"></script>
 </body>
 </html>

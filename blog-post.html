@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Blog Post | studioMaker</title>
+    <meta name="description" content="" id="page-description">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/pages/blog.css">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Blog Post Content (populated by JS) -->
+        <article id="blog-post-content"></article>
+
+        <!-- Related Posts -->
+        <section class="services" style="padding-top: 0;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="gradient-text">Related Articles</h2>
+                </div>
+                <div id="related-posts" class="blog-grid"></div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="contact">
+            <div class="contact-bg"></div>
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <h2 class="gradient-text">Ready to Get Started?</h2>
+                    <p>Let's build a website that grows your business.</p>
+                </div>
+
+                <div style="text-align: center;" class="fade-in-up stagger-1">
+                    <a href="contact.html" class="btn btn-primary btn-large">Get Your Free Quote</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/schema.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/theme-toggle.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/blog-data.js"></script>
+
+    <script>
+        // Load and display blog post
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get slug from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const slug = urlParams.get('slug');
+
+            if (!slug) {
+                window.location.href = 'blog.html';
+                return;
+            }
+
+            // Find post by slug
+            const post = blogPosts.find(p => p.slug === slug);
+
+            if (!post) {
+                window.location.href = 'blog.html';
+                return;
+            }
+
+            // Update page title and meta
+            document.getElementById('page-title').textContent = `${post.title} | studioMaker`;
+            document.getElementById('page-description').content = post.excerpt;
+
+            // Format date
+            const formatDate = (dateString) => {
+                const date = new Date(dateString);
+                return date.toLocaleDateString('en-US', {
+                    month: 'long',
+                    day: 'numeric',
+                    year: 'numeric'
+                });
+            };
+
+            // Render post
+            const postContainer = document.getElementById('blog-post-content');
+            postContainer.innerHTML = `
+                <div class="blog-post-header">
+                    <div class="blog-post-image" style="background-image: url('${post.image}')"></div>
+                    <div class="container">
+                        <div class="blog-post-meta">
+                            <span class="blog-category">${post.category}</span>
+                            <span>•</span>
+                            <span>${post.readTime}</span>
+                            <span>•</span>
+                            <span>${formatDate(post.date)}</span>
+                        </div>
+                        <h1 class="blog-post-title">${post.title}</h1>
+                        <div class="blog-post-author-info">
+                            <div class="author-avatar-small">${post.author.split(' ').map(n => n[0]).join('')}</div>
+                            <span class="author-name">By ${post.author}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-post-content">
+                    <div class="container">
+                        ${post.content}
+                    </div>
+                </div>
+
+                <div class="blog-post-footer">
+                    <div class="container">
+                        <a href="blog.html" class="btn btn-outline">← Back to Blog</a>
+                    </div>
+                </div>
+            `;
+
+            // Show related posts (same category, excluding current post)
+            const relatedPosts = blogPosts
+                .filter(p => p.category === post.category && p.id !== post.id)
+                .slice(0, 3);
+
+            if (relatedPosts.length > 0) {
+                const relatedContainer = document.getElementById('related-posts');
+                relatedContainer.innerHTML = relatedPosts.map((p, index) => `
+                    <article class="blog-card fade-in-up" style="animation-delay: ${index * 0.1}s;">
+                        <a href="blog-post.html?slug=${p.slug}" class="blog-card-link">
+                            <div class="blog-image" style="background-image: url('${p.image}')">
+                                <div class="blog-overlay"></div>
+                            </div>
+                            <div class="blog-content">
+                                <div class="blog-meta">
+                                    <span class="blog-category">${p.category}</span>
+                                    <span class="blog-read-time">${p.readTime}</span>
+                                </div>
+                                <h3>${p.title}</h3>
+                                <p>${p.excerpt}</p>
+                                <div class="blog-author">
+                                    <span>${p.author}</span>
+                                    <span>•</span>
+                                    <span>${formatDate(p.date)}</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                `).join('');
+            }
+        });
+    </script>
+</body>
+</html>

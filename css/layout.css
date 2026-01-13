@@ -197,3 +197,207 @@
 .contact .container {
     max-width: 800px;
 }
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    justify-content: center;
+}
+
+.social-links a {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    color: var(--color-text-light);
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-background);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+}
+
+.social-links svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+@media (min-width: 768px) {
+    .social-links {
+        justify-content: flex-start;
+    }
+}
+
+/* Trusted By Section */
+.trusted-by {
+    padding: 3rem 0;
+    background-color: var(--color-surface);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.trusted-label {
+    text-align: center;
+    color: var(--color-text-light);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 2rem;
+}
+
+.logo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-items: center;
+}
+
+@media (min-width: 640px) {
+    .logo-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .logo-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+.client-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    opacity: 0.6;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.client-logo:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.logo-placeholder {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-light);
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* ============================================
+   THEME TOGGLE
+   ============================================ */
+
+.theme-toggle-container {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+.theme-toggle-btn {
+    background: none;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-toggle-btn:hover {
+    border-color: var(--color-primary);
+    background-color: rgba(0, 212, 255, 0.1);
+    transform: scale(1.05);
+}
+
+.theme-toggle-btn:active {
+    transform: scale(0.95);
+}
+
+.theme-toggle-btn svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+.sun-icon {
+    color: #F59E0B;
+    opacity: 0;
+    transform: rotate(-90deg) scale(0);
+}
+
+.moon-icon {
+    color: var(--color-primary);
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+/* Light Theme States */
+[data-theme="light"] .sun-icon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+[data-theme="light"] .moon-icon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0);
+}
+
+/* Smooth transitions for theme changes */
+body,
+#header,
+.nav-links a,
+.service-card,
+.pricing-card,
+.blog-card,
+.result-card,
+.calculator-card,
+.feature-content,
+.testimonial-content {
+    transition: var(--transition-theme);
+}
+
+/* Light theme adjustments */
+[data-theme="light"] #header.scrolled {
+    background-color: rgba(248, 250, 252, 0.95);
+}
+
+[data-theme="light"] .orb {
+    opacity: 0.4;
+}
+
+[data-theme="light"] .service-card:hover,
+[data-theme="light"] .pricing-card:hover,
+[data-theme="light"] .blog-card:hover,
+[data-theme="light"] .result-card:hover {
+    box-shadow: 0 12px 40px rgba(8, 145, 178, 0.15);
+}
+
+@media (min-width: 768px) {
+    .theme-toggle-container {
+        margin-right: 0;
+        order: 1;
+    }
+
+    .nav-links {
+        order: 0;
+    }
+}

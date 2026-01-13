@@ -126,14 +126,23 @@
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
             margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--color-background);
+            overflow: hidden;
+            border: 3px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover .team-photo {
+            border-color: var(--color-primary);
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .team-member h3 {
@@ -322,21 +331,33 @@
 
                 <div class="team-grid">
                     <div class="team-member fade-in-up stagger-1">
-                        <div class="team-photo">JS</div>
+                        <div class="team-photo">
+                            <img src="https://ui-avatars.com/api/?name=Jordan+Stevens&size=120&background=00D4FF&color=0A0A0F&bold=true"
+                                 alt="Jordan Stevens"
+                                 loading="lazy">
+                        </div>
                         <h3>Jordan Stevens</h3>
                         <div class="team-role">Founder & Lead Developer</div>
                         <p>With over 10 years of experience in web development, Jordan has built everything from enterprise platforms to boutique business sites. Passionate about helping local businesses succeed online.</p>
                     </div>
 
                     <div class="team-member fade-in-up stagger-2">
-                        <div class="team-photo" style="background: linear-gradient(135deg, #667eea, #764ba2);">AM</div>
+                        <div class="team-photo">
+                            <img src="https://ui-avatars.com/api/?name=Alex+Martinez&size=120&background=A855F7&color=0A0A0F&bold=true"
+                                 alt="Alex Martinez"
+                                 loading="lazy">
+                        </div>
                         <h3>Alex Martinez</h3>
                         <div class="team-role">UI/UX Designer</div>
                         <p>Alex creates beautiful, user-friendly designs that convert. With a background in graphic design and a passion for clean, modern aesthetics, Alex ensures every site looks and feels professional.</p>
                     </div>
 
                     <div class="team-member fade-in-up stagger-3">
-                        <div class="team-photo" style="background: linear-gradient(135deg, #f093fb, #f5576c);">TC</div>
+                        <div class="team-photo">
+                            <img src="https://ui-avatars.com/api/?name=Taylor+Chen&size=120&background=0891B2&color=F8FAFC&bold=true"
+                                 alt="Taylor Chen"
+                                 loading="lazy">
+                        </div>
                         <h3>Taylor Chen</h3>
                         <div class="team-role">Client Success Manager</div>
                         <p>Taylor is your main point of contact throughout the project. With a background in customer service and project management, Taylor ensures your project runs smoothly from start to finish.</p>
@@ -413,7 +434,9 @@
     <div id="footer-placeholder"></div>
 
     <!-- Scripts -->
+    <script src="js/schema.js"></script>
     <script src="js/components.js"></script>
+    <script src="js/theme-toggle.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/animations.js"></script>
 </body>
