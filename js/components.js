@@ -135,34 +135,44 @@ function loadTawkTo() {
 
 // Service Worker Registration for PWA
 function registerServiceWorker() {
+  // Skip service worker on localhost
+  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    console.log('Service Worker: Skipping registration on localhost');
+    return;
+  }
+
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js')
-      .then((registration) => {
-        console.log('Service Worker registered successfully:', registration.scope);
+    // Register after page load to not block rendering
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then((registration) => {
+          console.log('Service Worker registered successfully:', registration.scope);
 
-        // Check for updates
-        registration.addEventListener('updatefound', () => {
-          const newWorker = registration.installing;
-          console.log('New Service Worker found');
+          // Check for updates
+          registration.addEventListener('updatefound', () => {
+            const newWorker = registration.installing;
+            console.log('New Service Worker found');
 
-          newWorker.addEventListener('statechange', () => {
-            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-              // New service worker installed, show update notification
-              console.log('New content available! Please refresh.');
-              showUpdateNotification();
-            }
+            newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                // New service worker installed, show update notification
+                console.log('New content available! Please refresh.');
+                showUpdateNotification();
+              }
+            });
           });
+        })
+        .catch((error) => {
+          console.error('Service Worker registration failed:', error);
+          // Don't block page functionality if SW fails
         });
-      })
-      .catch((error) => {
-        console.error('Service Worker registration failed:', error);
-      });
 
-    // Listen for messages from service worker
-    navigator.serviceWorker.addEventListener('message', (event) => {
-      if (event.data && event.data.type === 'CACHE_UPDATED') {
-        console.log('Cache updated:', event.data);
-      }
+      // Listen for messages from service worker
+      navigator.serviceWorker.addEventListener('message', (event) => {
+        if (event.data && event.data.type === 'CACHE_UPDATED') {
+          console.log('Cache updated:', event.data);
+        }
+      });
     });
   }
 }
